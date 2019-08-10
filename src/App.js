@@ -4,16 +4,20 @@ import Home from './pages/Home'
 import Rooms from './pages/Rooms'
 import SingleRoom from './pages/SingleRoom'
 import ErrorPage from './pages/ErrorPage'
+import Navigation from './components/Navigation'
 import './App.css'
 
 const App = () => {
   return (
-    <Switch>
-      <Route path="/" exact component={ Home } />
-      <Route path="/rooms" exact component={ Rooms } />
-      <Route path="/rooms/:id" component={ SingleRoom } />
-      <Route component={ ErrorPage } />
-    </Switch>
+    <>
+      <Navigation />
+      <Switch>
+        <Route path="/" exact component={ Home } />
+        <Route path="/rooms" exact component={ Rooms } />
+        <Route path="/rooms/:id" component={ SingleRoom } />
+        <Route component={ ErrorPage } />
+      </Switch>
+    </>
   )
 }
 
