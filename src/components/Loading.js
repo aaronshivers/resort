@@ -4,7 +4,7 @@ import loadingGif from '../images/gif/loading-arrow.gif'
 const Loading = () => (
   <div className="loading">
     <h4>rooms data loading...</h4>
-    <img src={ loadingGif } />
+    <img src={ loadingGif } alt="loading" />
   </div>
 )
 

@@ -3,17 +3,18 @@ import items from '../data'
 
 const RoomContext = createContext()
 
-const initialState = {
-  rooms: [],
-  sortedRooms: [],
-  featuredRooms: [],
-  loading: true
-}
+// const initialState = {
+//   rooms: [],
+//   sortedRooms: [],
+//   featuredRooms: [],
+//   loading: true
+// }
 
 const RoomProvider = ({ children }) => {
-  const [ state, setState ] = useState(initialState)
+  // const [ state, setState ] = useState(initialState)
   const [ rooms, setRooms ] = useState([])
   const [ featuredRooms, setFeaturedRooms ] = useState([])
+  const [ hasLoaded, setHasLoaded ] = useState(false)
 
   useEffect(() => {
     setRooms(
@@ -29,12 +30,11 @@ const RoomProvider = ({ children }) => {
     setFeaturedRooms(
       rooms.filter(({ featured }) => featured)
     )
+    !!rooms[0] && setHasLoaded(true)
   }, [rooms])
 
-  // useEffect(() => console.log(featuredRooms), [featuredRooms])
-
   return (
-    <RoomContext.Provider value={{ rooms, featuredRooms }}>
+    <RoomContext.Provider value={{ rooms, featuredRooms, hasLoaded }}>
       { children }
     </RoomContext.Provider>
   )

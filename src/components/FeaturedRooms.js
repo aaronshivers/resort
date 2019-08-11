@@ -1,27 +1,25 @@
 import React, { useContext } from 'react'
 import { RoomContext } from '../context/room-context'
+import Title from './Title'
 import Loading from './Loading'
+import Room from './Room'
 
 const FeaturedRooms = () => {
-  const { rooms, featuredRooms } = useContext(RoomContext)
-
-  console.log(featuredRooms)
+  const { hasLoaded, featuredRooms: rooms } = useContext(RoomContext)
 
   return (
-    <div>
-      <Loading />
-      FeaturedRooms
-      {
-        rooms.map(({ id, ...room }) => {
-
-          return (
-            <div key={ id }>
-              hello
-            </div>
-          )
-        })
-      }
-    </div>
+    <section className="featured-rooms">
+      <Title title="Featured Rooms" />
+      <div className="featured-rooms-center">
+        {
+          hasLoaded ?
+            rooms.map(({ id, ...room }) => (
+              <Room key={ id } room={ room } />
+            )) :
+            <Loading />
+        }
+      </div>
+    </section>
   )
 }
 
