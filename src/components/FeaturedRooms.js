@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { RoomContext } from '../context/room-context'
+import Loading from './Loading'
 
 const FeaturedRooms = () => {
   const { rooms, featuredRooms } = useContext(RoomContext)
@@ -8,6 +9,7 @@ const FeaturedRooms = () => {
 
   return (
     <div>
+      <Loading />
       FeaturedRooms
       {
         rooms.map(({ id, ...room }) => {
