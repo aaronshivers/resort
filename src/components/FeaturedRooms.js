@@ -2,12 +2,23 @@ import React, { useContext } from 'react'
 import { RoomContext } from '../context/room-context'
 
 const FeaturedRooms = () => {
-  const { name, greeting } = useContext(RoomContext)
+  const { rooms, featuredRooms } = useContext(RoomContext)
+
+  console.log(featuredRooms)
 
   return (
     <div>
       FeaturedRooms
-      { name }{ greeting }
+      {
+        rooms.map(({ id, ...room }) => {
+
+          return (
+            <div key={ id }>
+              hello
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
