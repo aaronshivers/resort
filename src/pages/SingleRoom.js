@@ -6,14 +6,12 @@ import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 
 const SingleRoom = ({ history }) => {
+  const { getRoom } = useContext(RoomContext)
 
   useEffect(() => {
-    console.log(history.location)
+    getRoom(history.location.state.slug)
   }, [])
   
-  const { getRoom } = useContext(RoomContext)
-  // console.log(getRoom)
-
   return (
     <div>SingleRoom</div>
   )

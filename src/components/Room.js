@@ -12,7 +12,10 @@ const Room = ({ name, slug, images, price }) => (
         <p>per night</p>
       </div>
       <Link
-        to={ `/rooms/${ slug }` }
+        to={ {
+           pathname: `/rooms/${ slug }`,
+           state: { slug }
+        } }
         className="btn-primary room-link"
       >
         Features

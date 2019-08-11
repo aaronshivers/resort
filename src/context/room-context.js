@@ -35,9 +35,7 @@ const RoomProvider = ({ children }) => {
     !!rooms[0] && setHasLoaded(true)
   }, [rooms])
 
-  const getRoom = slug => setSlug(
-    rooms.find(room => console.log(room.slug === slug))
-  )
+  const getRoom = slug => setSlug(slug)
 
   useEffect(() => console.log(slug), [slug])
 
