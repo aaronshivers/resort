@@ -13,8 +13,8 @@ const FeaturedRooms = () => {
       <div className="featured-rooms-center">
         {
           hasLoaded ?
-            rooms.map(({ id, ...room }) => (
-              <Room key={ id } room={ room } />
+            rooms.map(room => (
+              <Room key={ room.id } { ...room } />
             )) :
             <Loading />
         }
