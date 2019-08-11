@@ -15,6 +15,7 @@ const RoomProvider = ({ children }) => {
   const [ rooms, setRooms ] = useState([])
   const [ featuredRooms, setFeaturedRooms ] = useState([])
   const [ hasLoaded, setHasLoaded ] = useState(false)
+  const [ slug, setSlug ] = useState([])
 
   useEffect(() => {
     setRooms(
@@ -30,11 +31,18 @@ const RoomProvider = ({ children }) => {
     setFeaturedRooms(
       rooms.filter(({ featured }) => featured)
     )
+
     !!rooms[0] && setHasLoaded(true)
   }, [rooms])
 
+  const getRoom = slug => setSlug(
+    rooms.find(room => console.log(room.slug === slug))
+  )
+
+  useEffect(() => console.log(slug), [slug])
+
   return (
-    <RoomContext.Provider value={{ rooms, featuredRooms, hasLoaded }}>
+    <RoomContext.Provider value={{ rooms, featuredRooms, hasLoaded, getRoom }}>
       { children }
     </RoomContext.Provider>
   )
