@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.svg'
 import { FaAlignRight } from 'react-icons/fa'
 
 const Navigation = () => {
   const [ isOpen, setIsOpen ] = useState(false)
-
-  useEffect(() => console.log(isOpen), [isOpen])
 
   return (
     <nav className="navbar">
