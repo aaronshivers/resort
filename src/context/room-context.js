@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useReducer } from 'react'
 import items from '../data'
 
 const RoomContext = createContext()
@@ -32,10 +32,7 @@ const RoomProvider = ({ children }) => {
   )
 }
 
-const RoomConsumer = RoomContext.Consumer
-
 export {
   RoomContext,
-  RoomProvider,
-  RoomConsumer
+  RoomProvider
 }

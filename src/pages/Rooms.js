@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Banner from '../components/Banner'
+import RoomContainer from '../components/RoomContainer'
 
 const Rooms = () => (
-  <div>
+  <>
     <Hero hero="roomsHero">
       <Banner
         title="our rooms"
@@ -17,7 +18,8 @@ const Rooms = () => (
         </Link>
       </Banner>
     </Hero>
-  </div>
+    <RoomContainer />
+  </>
 )
 
 export default Rooms
